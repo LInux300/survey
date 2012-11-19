@@ -1,0 +1,17 @@
+<tr>
+  <td><a href="<%= url_for_path("#{dokument.nazev}") %>"><%= image_tag dokument.nazev %></a></td>
+  <td><%= link_to dokument.nazev, :action => "sepiatone", :id => dokument %></td>
+  <td>
+<% for user in @users
+     if user.id == dokument.user_id %>
+       <%=user.username %>    
+  <% end 
+   end %></td>
+  <td><%= link_to dokument.created_at, :action => 'ukazat', :id => dokument %></td>
+  <td><%= link_to dokument.updated_at, :action => 'ukazat', :id => dokument %></td>
+  <td><%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="dokument: detske-labyrinty.cz" />', {:action => 'destroy', :id => dokument},
+         :confirm =>
+           "Chceš doopravdy smazat dokument #{dokument.nazev}?" %>
+  </td>
+</tr>
+

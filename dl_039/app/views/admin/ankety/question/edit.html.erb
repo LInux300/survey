@@ -1,0 +1,6 @@
+<%= render :partial => 'navigace' %>
+<%= form_tag :action => 'update', :id => @question %>
+  <%= render :partial => 'form' %>
+  <input type="hidden" name="id" value= <%= @question.id %> >
+  <%= submit_tag 'edituj' %>
+<%= form_tag %>

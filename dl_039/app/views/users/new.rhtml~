@@ -1,0 +1,26 @@
+<h1><%='Registrace nového uživatele'%></h1>
+<%= error_messages_for :user %>
+
+<% if @inhomeservice %>
+<%='Thank you for choosing'%> <strong><%= @inhomeservice.name %></strong> <%="service"%>.
+<%='Please, write down your detail.'%><br /><br /> 
+	<% form_for :user, :url => {:action => :create}  do |f| -%>
+  		<fieldset> 
+    		<legend><%= 'your shop service' %></legend>
+    		<p>
+    			<label for="user_inhomeservice"><%= 'service' + ": " + "<strong>#{@inhomeservice.name}</strong>" %> </label><br/>
+	  			<%= hidden_field :user, :inhomeservice_id, :value => "#{@inhomeservice.id}" %>
+    		</p>
+  		</fieldset> 
+  		
+		<%= render_partial "form" %>	
+		<%= submit_tag 'sign up' %>
+	<% end -%>	
+
+<% else %>
+	<% form_for :user, :url => {:action => :create}  do |f| -%>
+		<%= render_partial "form" %>
+		<%= submit_tag 'sign up' %>
+	<% end -%>	
+<% end %>
+

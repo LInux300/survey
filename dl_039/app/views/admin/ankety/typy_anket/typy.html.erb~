@@ -1,0 +1,14 @@
+<p><%= link_to 'nový typ', :action => 'new' %></p>
+
+<p>
+	Slouží k nadefinování skupin k rozřazení anket podle typu.
+</p>
+
+<table>
+  <tr>
+    <th>Anketa</th>
+    <th>Klíčová slova</th>
+  </tr>
+  <%= render :partial => 'typ', :collection => @typy %>
+</table>
+

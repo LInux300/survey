@@ -1,0 +1,13 @@
+<% if user.username != "Admin"%>  
+   <td><%= link_to user.username, :action => 'show', :id => user %></td>
+   <td><%= link_to user.name, :action => 'show', :id => user %></td> 
+   <td><%= user.email -%></td>
+	<td><%= link_to '<img src="/picture/icon_change.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', user_roles_url(user.id)%></td>
+   <td class="table_td"><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'edit', :id => user %></td>
+   <td class="table_td">
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => user},
+         :confirm =>
+           "Doopravdy smazat uživatele?"  %> 
+  </td>
+<% end %>
+

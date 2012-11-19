@@ -1,0 +1,52 @@
+<%= render :partial => 'navigace' %>
+<fieldset>
+<dl>
+  <dt>Otázka</dt>
+  <dd><%= @question.question %></dd>
+</fieldset>
+<fieldset>
+ <table class="tabulky">
+   <tr>
+    <th  width ="200px" align="left">Známka </th>
+    <th>Počet hlasujících</th>
+   </tr>
+   <tr>  
+    <td><b>
+    <%= 
+    begin 
+      @question.mark_total/@question.votes_total 
+    rescue
+      # muze zde byt deleni nulou, proto vyjimka - uplne nazataku kdyz jeste nikdo na otazku neodpovidal 
+      0
+    end
+    %></b>  
+    </td>
+    <td><%= @question.votes_total %></td>
+   <tr>
+ </table>
+</fieldset>
+<% if @question.pocet_odpovedi != 0 %>
+<fieldset>
+<legend>Výběrová otázka</legend>
+ <table class="tabulky">
+   <tr>
+    <th>Počet odpovědí </th>
+    <th>Správná odpověď</th>
+    <th>Pozice správné odpovědi</th>
+    <th>Odpověď</th>
+   </tr>
+   <tr>  
+    <td><%= @question.pocet_odpovedi %></td>
+    <% @vyberovaOtazkys = @question.answer.split("\r\n") %>
+    <td><%= @vyberovaOtazkys[@question.position.to_i-1] %></td>
+    <td><%= @question.position %></td>
+   <td>
+   <%@vyberovaOtazkysDelka = @vyberovaOtazkys.length()-1 
+	  for i in 0..@vyberovaOtazkysDelka %>
+      	poz.#<%=i+1%>: <%= @vyberovaOtazkys[i] %><BR />
+     <% end %>
+   </td>
+   <tr>
+ </table>
+</fieldset>
+<% end %>

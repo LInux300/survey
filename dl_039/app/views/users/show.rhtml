@@ -1,0 +1,13 @@
+<h1><%='uživatel'%>: <%= @user.username %></h1>
+<%= render :partial =>'navigace' %>
+<table class="tableUzivatel"><td>
+    <p><label for="user_username"><%= 'přihlašovací jméno' %>: </label> <span class="static"><b><%=h @user.username %></b></span></p>
+    <p><label for="user_email"><%= 'e-mail' %>: </label> <span class="static"><b><%=h @user.email %></b></span></p>
+    <p><label for="user_updated_at"><%= 'účet aktualizován: ' %></label><span class="static"><b><%=h @user.updated_at %></b></span></p>
+     <p><label for="user_created_at"><%="uživatelem od: "%><b><%= @user.created_at.to_s()%></b></span></p>
+</td><td>
+    <p></label><span class="static"><img src="<%#@user.fotka.thumb.url%><%=@user.fotka%>" width="150px" height="150px" alt="foto" /></span> </p>
+    <p><label for="user_profile"><%= 'profil' %>: </label><span class="static"><b><%=h @user.profile %></b></span></p>
+</td><table>
+</div>
+<%= link_to 'podrobnosti', :controller => 'users', :action => 'podrobnosti', :id => session[:user] %>

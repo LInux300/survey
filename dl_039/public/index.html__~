@@ -1,0 +1,8 @@
+<h1>Anketa</h1>
+
+<table>
+	<tr><td><%= link_to 'otázky', "controller =>'admin/question', :action => 'index' %></td><td>2</td><td>3</td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<p></p>

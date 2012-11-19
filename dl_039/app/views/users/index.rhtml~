@@ -1,0 +1,36 @@
+<h1><%="seznam uživatelů" %></h1>
+
+<table id="users">
+	<tr>
+		<th><%#="uživatelské jméno" %></th>
+		<th><%#="email" %></th>
+		<th><%#="povolen?" %></th>
+		<th><%#="role/skupiny" %></th>
+	</tr>	
+	<%#= render :partial => 'user', :collection => @users %>
+</table>
+
+<fieldset>
+<legend><%="všichni uživatelé" %></legend>
+	<table>
+	  <tr>
+	    <th class="table_th"><%= 'login' %></th>
+	    <th class="table_th"><%= 'jméno' %></th>
+	    <th class="table_th"><%= 'email' %></th>
+	    <th class="table_th"><%= 'povolen?' %></th>
+	    <th class="table_th"><%= 'role/skupiny' %></th>
+	  </tr>
+			<%sude_liche = 0
+		  for user in @users    
+			sude_liche = 1-sude_liche %>	  
+  	  <%#= render :partial => 'user', :collection => @users %>
+  	  <tr class="pozadi<%= sude_liche %>">
+  	  	<%= render :partial => "user", :object => user %>
+     	</tr>
+  	  		<%end%>
+	</table>
+</fieldset>	
+		
+		
+
+		

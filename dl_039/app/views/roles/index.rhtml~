@@ -1,0 +1,10 @@
+<h1><%="roles for user".t%>: <%= @user.username %></h1>
+
+<fieldset>
+	<legend><%= 'roles'.t %></legend>
+	<h2><%= 'roles assigned'.t %>: </h2>
+		<dt><%= render :partial => 'role', :collection => @user.roles %></dt>
+	<h2><%= 'roles available'.t %>: </h2>
+		<dt><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></dt>
+</fieldset>
+

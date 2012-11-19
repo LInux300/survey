@@ -1,0 +1,35 @@
+<h3><%='Registrace nového uživatele'%></h3>
+<%= error_messages_for :user, :header_message => "" , :message => "Byla neschoda v těchto případech" %>
+
+<% form_for :user, :url => {:action => :create}  do |f| -%>
+  	<%#= render_partial "form" %>
+  	<fieldset>
+    <legend><%= 'Přihlašovací údaje' %></legend>  
+		<% if session[:user]%>		
+			<p>
+	  		<label for="user_username"><%='Uživatelské Jméno'%>: <strong><%=@user.username %></strong></label><br />
+	 		</p> 
+		<%else%>
+	 		<p>
+	  		<label for="user_hashed_password"><%= 'Uživatelské Jméno' %>:</label><br />
+	  		<%= text_field "user", "username", :size => 30 %><br/>
+	 		</p>		
+		<%end%>	 		 	
+	 	<p>
+	  	<label for="user_hashed_password"><%= 'Heslo' %>:</label><br />
+	  	<%= password_field "user", "password", :size => 30 %><br/>
+	 	</p>
+	 	<p>
+  		<label for="user_password_confirmation"><%= 'Heslo znovu' %></label><br/>
+	 		<%= password_field "user", "password_confirmation", :size => 30 %><br/>
+	 	</p>
+      <p>
+         <label for="user_email"><%='E-mail'%></label><br/>
+	    	<%= text_field "user", "email", :size => 30 %><br/>
+      </p>
+	</fieldset>
+  	<fieldset>
+	  	<%= submit_tag 'zaregistrovat' %>
+	</fieldset>
+<% end %>
+

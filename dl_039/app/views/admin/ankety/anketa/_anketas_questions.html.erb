@@ -1,0 +1,8 @@
+<tr>
+  <td><%#= link_to anketas_questions.otazka_id, :action => 'show', :controller => "/admin/ankety/question" ,:id => anketas_questions.otazka_id %></td>
+  <td><%= link_to anketas_questions.otazka, :controller => 'question' , :action => 'show', :id => anketas_questions.otazka_id %></td>
+  <td><%= anketas_questions.pozice_otazky %></td>
+  <td><%= %></td>
+  <td><%= %></td>
+</tr>
+

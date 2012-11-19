@@ -1,0 +1,19 @@
+<tr>
+  <td><%= link_to question.question, :action => 'show', :id => question %></td>
+  <% begin
+      @znamka = question.mark_total / question.votes_total
+    rescue
+      @znamka = 0 
+    end 
+  %>
+  <td align="center"><%= link_to @znamka, :action => 'show', :id => question %></td>
+  <td align="center"><%= link_to question.votes_total, :action => 'show', :id => question %></td>
+  <td><%= link_to question.created_at, :action => 'show', :id => question %></td>
+  <td><%= link_to question.updated_at, :action => 'show', :id => question %></td>
+  <td><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'edit', :id => question %></td>
+  <td>
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => question},
+         :confirm =>
+           "Chceš doopravdy smazat otázku #{question.question}?" %>
+  </td>
+</tr>

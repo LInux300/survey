@@ -1,0 +1,13 @@
+<p>
+	Zde je úložiště všech otázek co mám k dispozici, stejná otázka může být ve více anketách. 	 
+</p>
+<p><%= link_to 'přidej novou otázku', :action => 'new' %></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <%= render :partial => 'question', :collection => @questions %>
+</table>
+<p><%= link_to 'zpátky', :controller => "/about", :action => 'index' %></p>

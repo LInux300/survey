@@ -1,0 +1,11 @@
+<%= link_to 'Seznam', :action => 'index' %> 
+<div class="div01">
+<p><label for="user_fotka">Dokument</label>
+  <%= upload_form_tag ( {:action => 'vytvor', :id => @dokument}, :multipart => true ) %>
+ <%#= upload_column_field 'dokument', 'nazev'  %>
+  <input id="dokument_nazev" name="dokument[nazev]" size="30" type="file"  value="submit"  class="dokumentNazev"/>
+  <%= submit_tag 'uložit' %>
+</p>
+</div>
+
+ 

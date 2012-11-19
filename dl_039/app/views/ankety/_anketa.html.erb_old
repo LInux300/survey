@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to anketa.title, :action => 'anketa', :id => anketa %></td>
+  <td><%= link_to anketa.key_word, :action => 'anketa', :id => anketa %></td>
+</tr>

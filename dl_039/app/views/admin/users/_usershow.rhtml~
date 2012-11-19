@@ -1,0 +1,79 @@
+  <fieldset>
+    <legend><%= 'contact info'.t %></legend>
+    <p>
+      <label for="user_email"><%= 'e-mail'.t %>: </label> <span class='static'><%=h @user.email %></span>
+    </p>
+    <p>
+      <label for="user_telefon"><%= 'telephone'.t %>: </label><span class='static'><%=h @user.phone %></span>
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= 'shipping detail'.t %></legend>
+    <p>
+	    <label for="user_name"><%= 'name'.t %>: </label><span class='static'><%=h @user.name %></span>
+    </p>
+    <p>
+	    <label for="user_address"><%= 'address'.t %>: </label><span class='static'><%=h @user.address %></span>
+    <p>
+	    <label for="user_city"><%= 'city'.t %>: </label><span class='static'><%=h @user.city %></span>
+    </p>
+    <p>
+	    <label for="user_postcode"><%= 'post code'.t %>: </label><span class='static'><%=h @user.postcode %></span>
+    </p>
+    <p>
+	    <label for="user_country"><%= 'country'.t %>: </label><span class='static'><%=h @user.country %></span>
+    </p>
+  </fieldset>
+
+	<%if @user.company!=""%>	
+  <fieldset>
+    <legend><%= 'Company information'.t %></legend>  	    	
+    	<p>
+    		<label for="user_company"><%= 'company name'.t %>: </label>
+	  		<span class='static'><%=h @user.company %></span>
+    	</p> 
+    	<p>
+    		<label for="user_ic"><%= 'IČ'.t %>: </label>
+	  		<span class='static'><%=h @user.ic %></span>
+    	</p>
+    	<p>
+    		<label for="user_dic"><%= 'DIČ'.t %>: </label>
+	  		<span class='static'><%=h @user.dic %></span>
+    	</p> 
+     	<p> 
+ 	   	<label for="user_company_email"><%= 'e-mail'.t %>: </label>
+		  	<span class='static'><%=h @user.company_email %></span>
+    	</p>
+     	<p> 
+ 	   	<label for="user_company_phone"><%= 'telephone'.t %>: </label>
+		  	<span class='static'><%=h @user.company_phone %></span>
+    	</p>
+     	<p> 
+ 	   	<label for="user_company_fax"><%= 'fax'.t %>: </label>
+		  	<span class='static'><%=h @user.company_fax %></span>
+    	</p>
+  </fieldset>
+  <fieldset>
+    <legend><%= 'Registered company place'.t %></legend>
+  		<p>
+  			<%= 'If the shipping address is different. it serves for invoicing'.t %>
+  		</p>	
+    	<p>
+    		<label for="user_company_address"><%= 'address'.t %>: </label>
+	  		<span class='static'><%=h @user.company_address %></span>
+    	</p>
+    	<p>
+    		<label for="user_company_city"><%= 'city'.t %>: </label>
+	  		<span class='static'><%=h @user.company_city %></span>
+    	</p>
+    	<p>
+    		<label for="user_company_postcode"><%= 'post code'.t %>: </label>
+	  		<span class='static'><%=h @user.company_postcode %></span>
+    	</p>
+    	<p>
+    		<label for="user_company_country"><%= 'country'.t %>: </label>
+    		<span class='static'><%=h @user.company_country %></span>
+    	</p>
+  </fieldset>
+	<%end%>

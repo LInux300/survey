@@ -1,0 +1,17 @@
+<h3>Vybrat ankety podle typu</h3>
+<div class="div01">
+<table class="tabulky">
+  <tr>
+    <th>anketa podle</th>
+  </tr>
+   <%sude_liche = 0
+ 	for typ in @typs    
+ 	sude_liche = 1-sude_liche %>
+ 	<tr  class="pozadi<%= sude_liche %>">
+  <%#= render :partial => 'typ', :collection => @typy %>
+  <td><%= link_to typ.name, :action => 'typ', :id => typ %></td>
+  </tr>
+  <% end %>  
+</table>
+</div>
+

@@ -1,0 +1,9 @@
+<tr>
+  <td></td>
+  <td>
+	<input type="radio" name='<%= "aho" %>' id='<%= "" %>'
+ 	checked="checked" value="1"
+	<!--onclick="<%#=remote_function(:url => {:controller => 'checkout', :action => 'ship_method_select', :method => 'pickup'})-%>" />-->  
+  </td>
+  <td><%= vyberoveOtazky %></td>
+</tr>

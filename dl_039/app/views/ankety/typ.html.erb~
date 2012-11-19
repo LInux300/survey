@@ -1,0 +1,10 @@
+<h3>Ankety pro skupinu: <%="#{@typ.name}"%></h3>
+
+
+<table>
+  <tr>
+    <th>Anketa</th>
+    <th>Klíčová slova</th>
+  </tr>
+  <%= render :partial => 'anketa', :collection => @anketas %>
+</table>

@@ -1,0 +1,25 @@
+<%if not @useSession.username != 'Admin' and session[:user] != @user.id  and logged_in_user and logged_in_user.has_role?('Administrator') %>
+	<%= render :partial=>'user' %>
+	<br /><br />
+	<%= form_tag :action=>"edit", :id => @user.id %>
+  	<%= render_partial "form" %>
+  	<%= save %> 
+	<%#= end_form_tag %>
+<%elsif logged_in_user and logged_in_user.has_role?('Administrator') and @useSession.username != 'Admin'%>
+	<%= render :partial=>'user' %>
+	<br /><br />
+	<%= start_form_tag :action=>"edit", :id => @user.id %>
+  	<%= render_partial "form" %>
+  	<%= save %> 
+	<%= end_form_tag %>
+<%elsif session[:user] != @user.id %>
+	<span><%= link_to 'list'.t,:controller=>'/admin/order', :action => 'index' %></span>
+<%else %>
+	<%= start_form_tag :action=>"edit", :id => @user.id %>
+  	<%= render_partial "form" %>
+  	<%= save %> 
+	<%= end_form_tag %>
+  <p>   
+    <span class="link"><%= link_to "list".t, :action=>"index" %></span>
+  </p> 
+<%end%>

@@ -1,0 +1,102 @@
+<h1>anketa: <%= link_to @anketa.title, :action => 'anketa', :id => @anketa.id %></h1>
+
+<% form_tag({:action => 'create' }, {:multipart => true, :class => "questions"}) do |f| -%>
+<p><b>Hodnocení otázek v anketě</b></p>
+<div>
+		<table class="tabulky">
+			<tr>
+				<th> otázka </th>
+				<th> známka / odpověď </th>
+				<th> slovní hodnocení / odpověď </th>
+				<!--<th> známka </th>-->
+			</tr>
+			<%sude_liche = 0
+ 	      for question in @questions    
+ 	      sude_liche = 1-sude_liche %>
+ 	      <%if Question.exists?(question)%>
+ 	      <tr  class="pozadi<%= sude_liche %>">
+
+<% if question.pocet_odpovedi != 0 %>
+  <!--vyberova anketa-->
+  	<td><%= question.question %>
+  	<%#= link_to question.question, :controller => '/otazky', :action => 'show', :id => question.id %></td>  	
+   <td></td>
+  	<%#POZOR: tyhle tady musi nejaky byt, jinak se posouva pole dozadu, protoze pak nejaky chybi!!!
+  	<input id="hodnoceni[][znamka]", name="hodnoceni[][znamka]" value="0" type="hidden"></input>
+   <input id="hodnoceni[][user_body]", name="hodnoceni[][user_body]" value="" type="hidden"></input>
+   %> 
+   <%#TODO: SIDIM: pretypovavam hodnoty u inputu, abych nemusel zavadet nove, setrim si praci, castecne muze byt zavadejici%> 
+   <input id="hodnoceni[][znamka]", name="hodnoceni[][znamka]" value="<%=question.position%>" type="hidden"></input>
+   <input id="hodnoceni[][user_body]", name="hodnoceni[][user_body]" value="<%=question.answer%>" type="hidden"></input>
+   <td>
+   <%@vyberovaOtazkys = question.answer.split("\r\n")
+     @vyberovaOtazkysDelka = @vyberovaOtazkys.length()-1   %>
+			<% for i in 0..@vyberovaOtazkysDelka %>
+ 	      <tr  class="pozadi<%= sude_liche %>">
+  				<td></td>
+  				<td align="center">
+					<input type="radio" name='<%= question.id %>' id='<%= question.id %>' value="<%= i+1 %>" 
+		  		</td>
+  				<td><%= @vyberovaOtazkys[i] %></td>  				
+   <% end %>
+   </td>
+<% else %>
+  <!--standartni anketa-->
+  	<td><%= question.question %>
+  	<%#= link_to question.question, :controller => '/otazky', :action => 'show', :id => question.id %></td>  	
+	<td>
+		<select name="hodnoceni[][znamka]" id="hodnoceni[][znamka]">
+		   <option></option>
+   		<option value="2" selected="selected">+2 rozhodně ano </option>
+   		<option value="1">+1 ano</option>
+   		<option value="0" selected="selected">0, jedno, bez hodnocení</option>
+   		<option value="-1">-1 ne</option>
+   		<option value="-2">-2 rozhodně ne</option>
+ 		</select>
+	</td>  	
+  	<td>
+  		<textarea cols="27" rows="5" id="hodnoceni[][user_body]" name="hodnoceni[][user_body]">
+    	</textarea>
+  	</td>
+  	<% begin  
+  	     znamka = question.mark_total/question.votes_total 
+  	   rescue
+  	     znamka = 0
+  	   end    
+  	%>
+  	<!--<td align="center"><%#= znamka %></td>-->
+<% end %>
+
+<input id="hodnoceni[][anketa_id]", name="hodnoceni[][anketa_id]" value="<%= @anketa.id %>" type="hidden"></input>
+<%#= hidden_field :hodnoceni, :anketa_id, :value => @anketa.id %>
+	
+<input id="hodnoceni[][question_id]", name="hodnoceni[][question_id]" value="<%= question.id %>" type="hidden"></input>
+<%#= hidden_field 'hodnoceni', 'question_id', :value => question.id %>     	
+
+         </tr>
+         <%end%>
+         <% end %>
+		</table>
+		<% if not session[:user]  %>
+		<p>
+		<small>místo pro dotaz, poznámku, cokoliv ...</small><BR />
+  			<textarea cols="33" rows="3" id="podpis" name="podpis" class="testarea1">
+    		</textarea>
+    	</p>		
+	  	<% end %>
+      <p>   	
+   	   <%= submit_tag 'pošli' %>
+   	</p>   
+</div>
+<% end %>
+
+<p>
+	<small>
+	<b>otázky ve zkratce: </b><br />
+	<%= @anketa.questions.map{|a| a.question}.join("<br /> ") %>
+	</small>
+</p>
+
+
+
+

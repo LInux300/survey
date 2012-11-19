@@ -1,0 +1,13 @@
+<tr>
+  <td><%= link_to anketa.title, :action => 'show', :id => anketa %></td>
+  <td><%= link_to anketa.mark_total, :action => 'show', :id => anketa %></td>
+  <td><%= link_to anketa.votes_total, :action => 'show', :id => anketa %></td>
+  <td><%= link_to anketa.created_at, :action => 'show', :id => anketa %></td>
+  <td><%= link_to anketa.updated_at, :action => 'show', :id => anketa %></td>
+  <td><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'edit', :id => anketa %> </td>
+  <td><%= link_to '<img src="/picture/icon_change.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'pozice', :id => anketa %> </td>
+  <td><%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => anketa},
+         :confirm =>
+           "Chceš doopravdy smazat anketu #{anketa.title}?" %>
+  </td>
+</tr>

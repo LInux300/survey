@@ -1,0 +1,36 @@
+<%= link_to 'Labyrinty', :controller => "/about", :action => 'index' %></p>
+<div class="div01">
+<table class="tabulky">
+   <tr>
+    <th>Jméno dokumentu</th>
+    <th>Cesta</th>
+    <th>Nahrál</th>
+    <th>Vytvořena</th>
+    <th>Změněna</th>
+   </tr>
+   <%sude_liche = 0
+ 	for dokument in @dokuments    
+ 	sude_liche = 1-sude_liche %>
+ 	<%if Dokument.exists?(dokument)%>
+ 	<tr  class="pozadi<%= sude_liche %>">
+    <td><a href="<%= url_for_path("#{dokument.nazev}") %>"><%= image_tag dokument.nazev %></a></td>
+    <td><%= link_to dokument.nazev, :action => "sepiatone", :id => dokument %></td>
+    <td> 
+    <% for user in @users
+     if user.id == dokument.user_id %>
+       <%=user.username %>    
+     <% end 
+     end %></td>
+    <td><%= dokument.created_at %></td>
+    <td><%= dokument.updated_at %></td>
+  </tr>
+  <%end%>
+  <% end %>
+</table>
+<% if not @dokuments %>
+ <ul>POZN.: 
+	<li>Zde je seznam všech dokumentů, aktuálně zde není žádný dokument.</li>
+</ul>
+<% end %>
+</div>
+

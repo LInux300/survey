@@ -1,0 +1,115 @@
+<%= error_messages_for 'user' %>
+<!--[form:user]-->
+  <fieldset>
+    <legend><%= 'Přihlašovací údaje' %></legend>  
+		<% if session[:user] and params['action'] == "new" %>		
+			<p>
+	      <label for="user_username"><%='uživatelské jméno' %></label><br/>
+		  	<%= text_field "user", "username", :size => 30 %><br/>
+	 		</p>
+		<% elsif session[:user] %>		
+			<p>
+	  		<label for="user_username"><%='uživatelské jméno'%>: <strong><%=@user.username %></strong></label><br />
+	 		</p>
+		<%else%>
+	 		<p>
+	  		<label for="user_hashed_password"><%= 'uživatelské jméno' %>:</label><br />
+	  		<%= text_field "user", "username", :size => 30 %><br/>
+	 		</p>		
+		<%end%>	 	
+	 	<p>
+	  		<label for="user_password"><%= 'heslo' %>:</label><br />
+	  		<%= password_field "user", "password", :size => 30 %><br/>
+	 	</p>
+	 	<p>
+  			<label for="user_password_confirmation"><%= 'potvrzení hesla' %></label><br/>
+	 		<%= password_field "user", "password_confirmation", :size => 30 %><br/>
+	 	</p>
+	 	
+  </fieldset>
+
+
+  <fieldset>
+    <legend><%= 'kontaktní informace' %></legend>
+    <p>
+      <label for="user_email"><%='e-mail' %></label><br/>
+	  	<%= text_field "user", "email", :size => 30 %><br/>
+    </p>
+    <p>
+    	<label for="user_phone"><%= 'telefon' %></label><br/>
+	  	<%= text_field "user", "phone", :size => 30 %><br/>
+    </p>
+	</fieldset>
+
+
+  <fieldset>
+    <legend><%= 'Adresa' %></legend>
+    	<p>
+    		<label for="user_name"><%= 'jméno' %>: </label><br/>
+	  		<%= text_field 'user', 'name'  %>    		
+    	</p>
+    	<p>
+    		<label for="user_address"><%= 'adresa' %>: </label><br/>
+	  		<%= text_field 'user', 'address'  %>
+    	</p>
+    	<p>
+    		<label for="user_city"><%= 'město' %>: </label><br/>
+	  		<%= text_field 'user', 'city'  %>
+    	</p>
+    	<p>
+    		<label for="user_postcode"><%= 'směrovací číslo' %>: </label><br/>
+	  		<%= text_field 'user', 'postcode'  %>
+    	</p>
+    	<p>
+    		<label for="user_country"><%= 'země' %>: </label><br/>
+    		<%= country_select(:user, :country, priority_countries = ['Česká Republika']) %> 
+    	</p>
+  </fieldset>
+  
+  <fieldset>
+    <legend><%= 'Informace o zařízení' %></legend>
+    	<p>
+    		<label for="user_nazev_company"><%= 'Jméno zařízení' %>: </label><br/>
+	  		<%= text_field 'user', 'company'  %>    		
+    	</p> 
+    	<p>
+    		<label for="user_ic"><%= 'IČ' %>: </label><br/>
+	  		<%= text_field 'user', 'ic'  %>
+    	</p>
+    	<p>
+    		<label for="user_dic"><%= 'DIČ' %>: </label><br/>
+	  		<%= text_field 'user', 'dic'  %>
+    	</p> 
+     	<p> 
+ 	   	<label for="user_company_email"><%= 'e-mail' %>: </label><br/>
+		  	<%= text_field "user", "company_email", :size => 30 %><br/>
+    	</p>
+     	<p> 
+ 	   	<label for="user_tcompany_phone"><%= 'telefon' %>: </label><br/>
+		  	<%= text_field "user", "company_phone", :size => 30 %><br/>
+    	</p>
+     	<p> 
+ 	   	<label for="user_fax"><%= 'fax' %>: </label><br/>
+		  	<%= text_field "user", "company_fax", :size => 30 %><br/>
+    	</p>
+  </fieldset>
+  <fieldset>
+    <legend><%= 'Adresa zařízení' %></legend>  
+    	<p>
+    		<label for="user_company_address"><%= 'adresa' %>: </label><br/>
+	  		<%= text_field 'user', 'company_address'  %>
+    	</p>
+    	<p>
+    		<label for="user_company_city"><%= 'město' %>: </label><br/>
+	  		<%= text_field 'user', 'company_city'  %>
+    	</p>
+    	<p>
+    		<label for="user_company_postcode"><%= 'směrovací číslo' %>: </label><br/>
+	  		<%= text_field 'user', 'company_postcode'  %>
+    	</p>
+    	<p>
+    		<label for="user_company_country"><%= 'země' %>: </label><br/>
+    		<%= country_select(:user, :company_country, priority_countries = ['Česká Republika']) %> 
+    	</p>
+  </fieldset>
+<!--[eoform:user]-->

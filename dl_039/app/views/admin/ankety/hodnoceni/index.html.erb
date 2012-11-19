@@ -1,0 +1,28 @@
+<%= render :partial => 'navigace' %>
+
+<div class="div01">
+<table class = "tabulky">
+  <tr>
+    <th> hod. </th>
+    <th> známka </th>
+    <th> uživatel </th>
+    <th> anketa </th>
+    <th> otázka </th>
+    <th> odpověď </th>
+    <th> správně *1</th>
+  </tr>
+  <%= render :partial => 'hodnoceni', :collection => @hodnocenis %>
+</table>
+</div>
+
+<p>
+<small><b>Vysvětlívky:</b>
+<ul>*1
+   <li>ANO - výběrová otázka byla zodpovězena správně</li>
+   <li>NE - výběrová otázka byla zodpovězena špatně</li>
+   <li>BEZ - výběrová otázka kde jsou všechny odpovědi mezisebou stejné</li>
+   <li>je-li "-" nejedna se o výběrovou otázku</li>
+</ul>   
+Hodnoceni u výběrových otázek je zvýrazněno jinou barvou. 
+</small>
+</p>

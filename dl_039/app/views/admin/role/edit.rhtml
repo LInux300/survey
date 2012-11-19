@@ -1,0 +1,12 @@
+<fieldset class="fieldset">
+<legend class="legend"><%="upravit"%></legend>
+	<% form_tag :action => 'update', :id => @role do %>
+	  <%= render :partial => 'form' %>
+	  <%= submit_tag 'upravit' %>
+	<% end %>
+</fieldset>
+
+<p>
+	<span class="link"><%= link_to 'upravit', :action => 'upravit', :id => @role %></span>|
+	<span class="link"><%= link_to 'seznam', :action => 'seznam' %></span>
+</p>	

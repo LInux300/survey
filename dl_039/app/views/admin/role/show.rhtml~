@@ -1,0 +1,13 @@
+<fieldset class="fieldset">
+<legend class="legend"><%="ukázat"%></legend>
+	<% for column in Role.content_columns %>
+	<p>
+	  <b><%= column.human_name %>:</b> <span class='static'><%=h @role.send(column.name) %></span>
+	</p>
+	<% end %>
+</fieldset>
+
+<p>
+	<span class="link"><%= link_to 'upravit'.t, :action => 'edit', :id => @role %></span>|
+	<span class="link"><%= link_to 'seznam'.t, :action => 'list' %></span>
+</p>	

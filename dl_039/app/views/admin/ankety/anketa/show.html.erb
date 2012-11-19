@@ -1,0 +1,23 @@
+<%= render :partial => 'navigace' %>
+
+<div class="div01">
+<dl>
+  <dt><b>Název ankety</b></dt>
+  <dd><%= @anketa.title %></dd>
+</dl>
+<dl>
+  <dt><b>Skupina - role</b></dt>
+  <dd><%= @skupina.name %></dd>
+</dl>
+<dl>
+  <dt><b>Popis ankety:</b></dt>
+  <dd><%= @anketa.key_word %></dd>
+</dl>
+
+<b>otázky k anketě: </b><br />
+ <table>
+   <%= render :partial => 'anketas_questions', :collection => @otazkyPozice %>
+ </table>
+</div>
+
+<%#= @anketa.questions.map{|a| a.question}.join("<br /> ") %>

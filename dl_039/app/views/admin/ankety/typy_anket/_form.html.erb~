@@ -1,0 +1,7 @@
+<%= error_messages_for 'typ' %>
+<p><label for="status_name">Typ</label><br/>
+<%= text_field 'status', 'name' %></p>
+<p><label for="status_key_word">Klíčová slova</label><br/>
+<%= text_field 'status', 'key_word' %></p>
+
+

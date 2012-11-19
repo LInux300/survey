@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to typ.name, :action => 'typ', :id => typ %></td>
+  <td><%= link_to typ.key_word, :action => 'typ', :id => typ %></td>
+</tr>

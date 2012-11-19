@@ -1,0 +1,8 @@
+<p class='navigation'>
+	<span class=""><%= link_to 'show my profile', :action => "show"  %> | </span>
+	<span class=""><%= link_to 'změna údajů', :controller => 'users', :action => 'edit', :id => session[:user] %></span>
+	<!--<span class="navigation"><%= link_to 'service', :controller => 'users', :action => 'service', :id => session[:user] %></span>
+ 	<%if @user.username == 'Admin' %>
+		<span class="navigation"><%= link_to 'admin ', :controller => '/users/superuser', :action => 'userservice_change', :id => session[:user] %></span>
+	<%end%>-->
+</p>

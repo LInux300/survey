@@ -1,0 +1,20 @@
+<h3>Ankety pro skupinu: <%="#{@typ.name}"%></h3>
+<div class="div01">
+<table class="tabulky">
+  <tr>
+    <th>Anketa</th>
+    <th>o anketě ... </th>
+  </tr>
+  <%sude_liche = 0
+  for anketa in @anketas    
+  sude_liche = 1-sude_liche %>
+  <%if Anketa.exists?(anketa)%>
+  <tr  class="pozadi<%= sude_liche %>">
+    <td><%= link_to anketa.title, :action => 'anketa', :id => anketa %></td>
+    <td><%= link_to anketa.key_word, :action => 'anketa', :id => anketa %></td>
+ <%#= render :partial => 'anketa', :collection => @anketas %>
+  </tr>
+  <%end%>
+  <% end %>
+</table>
+</div>

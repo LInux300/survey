@@ -1,0 +1,50 @@
+<%= error_messages_for 'question' %>
+<fieldset>
+<legend class="legend">Standartní anketní otázka</legend>
+  <p><label for="question_question">Otázka</label><br/>
+    <%= text_area 'question', 'question', "cols" => 83, "rows" => 3 %></p>
+  <p><label for="question_mark_total">Celkovy součet všech známek ze všech hlasů</label><br/>
+    <%= text_field 'question', 'mark_total', "size" => 2, "value" => @question.mark_total %></p>
+  <p><label for="question_votes_total">Počet hlasujících</label><br/>
+    <%= text_field 'question', 'votes_total', "size" => 2, "value" => @question.votes_total %></p>
+  <p>
+    <small>pozn.: Pro nejlepší učely statistiky je dobré celkový součet známek a počet hlasujících nechat 
+    na nulových inicializačních hodnotách, tak docílím opravdu toho jak se hlasovalo u káždé otázky.</small>
+  </p>
+  <p>
+    <small>pozn.: Součet známek děleno počtem hlasujícich nám dá poměrnou známku, 
+    která by měla být v rozmezí jedna až sedum. Je to inicializační hodnota.</small>
+  </p>
+</fieldset>
+
+<fieldset>
+<legend class="legend">Výběrová otázka</legend>
+  <p><label for="pocet_odpovedi">Počet odpovědí na otázku</label><br/>
+  <%= text_field 'question', 'pocet_odpovedi', "size" => 1, "value" => @question.pocet_odpovedi %>
+  	<BR />
+  	<small>pozn.: Zadej číslo standartně menší jak 7, značí z kolika odpovědí si bude moct vybrat u jedné otázky. 
+  	Přičemž každý řádek v poli odpovědi značí jednu odpoveď k otázce. Počet řádků a číslo se musí shodovat, 
+  	jinak otázku nelze uložit. Když není vyplněné, tak bez možností, tj. standartní anketní otázka. </small>
+  </p>
+  <p><label for="question_position">Pozice správné odpovědi</label><br/>
+  	 <%= text_field 'question', 'position', "size" => 1, "value" => @question.position %>
+    <BR />    
+    <small>pozn.: Udává kolikátá odpověď je správná.
+  	 <!-- TODO: Jsou-li čísla odděleny čárkou, je správně víc odpovědí. Všechny musejí být odpovidatelem zodpovězeny správně 
+  	 jinak odpověd na otázku je špatně. --> 
+  	 Pozice správné odpovědi nesmí být větší jak počet odpovědí na otázku.</small>
+  </p>
+  <p><label for="question_answer">Odpověď - počet odpovědí</label>
+    <BR />
+    <%= text_area 'question', 'answer', "cols" => 83, "rows" => 7 %>
+    <BR />
+    <small>pozn.: Počet řádků v odpovědi se musí rovnat číslu zadaného v poli <b>"Počet odpovědí na otázku"</b>.</small>
+  </p>
+  TODO: ////////////////////
+  <p><label for="question_yes">Porovnat odpověď</label><br/>
+	  <input type="checkbox" id="question_yes" name="question[yes]" value="0"  />
+	  <input name="question[yes]" type="hidden" value="0" />
+	  <BR />
+	  <small>pozn.: Slouží k porovnání odpověďi od uživatele s odpovědí, kterou sem napíší, jestli se shoduje. Je dobré psát jednoduché odpovědi. </small>
+  </p>
+</fieldset>

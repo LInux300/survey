@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to typ.name, :controller =>"/ankety", :action => 'typ', :id => typ %></td>
+  <td><%= link_to typ.key_word, :controller =>"/ankety", :action => 'typ', :id => typ %></td>
+  <td><%= link_to '<img src="/picture/icon_list.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'ukazat', :id => typ %></td>
+  <td><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'edit', :id => typ %></td>
+  <td>
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => typ},
+         :confirm =>
+           "Chceš doopravdy smazat typ / skupinu #{typ.name}?" %>
+  </td>
+</tr>
+

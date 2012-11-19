@@ -1,0 +1,24 @@
+<h1><%="Uživatel '" %>: <%= @user.username %> ' je členem skupin </h1>
+
+	<%#= render :partial=>'usershow' %>
+<% if @user.username != "Admin"%>  
+   <td><%= link_to @user.username, :controller => "/admin/users", :action => 'show', :id => @user %></td>
+   <td><%= link_to @user.name, :controller => "/admin/users", :action => 'show', :id => @user %></td> 
+   <td><%= @user.email -%></td>
+	<td><%= link_to '<img src="/picture/icon_change.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', user_roles_url(@user.id)%></td>
+   <td class="table_td"><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :controller => "/admin/users", :action => 'edit', :id => @user %></td>
+   <td class="table_td">
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:controller => "/admin/users",  :action => 'destroy', :id => @user},
+         :confirm =>
+           "Doopravdy smazat uživatele?"  %> 
+  </td>
+<% end %>
+
+<fieldset>
+	<legend><%= 'role / skupiny' %></legend>
+	<h2><%= 'přiřazené skupiny' %>: </h2>
+		<dt><%= render :partial => 'role', :collection => @user.roles %></dt>
+	<h2><%= 'dostupné skupiny' %>: </h2>
+		<dt><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></dt>
+</fieldset>
+

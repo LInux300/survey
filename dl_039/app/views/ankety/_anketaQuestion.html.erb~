@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to anketaQuestion.question_id, :action => 'show', :id => anketaQuestion %></td>
+</tr>
+<tr></tr>

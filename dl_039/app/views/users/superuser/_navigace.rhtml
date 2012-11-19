@@ -1,0 +1,6 @@
+<p class='navigation'>
+	<span class=""><%= link_to 'back to my profile'.t, :controller => '/users', :action => 'show', :id => session[:user] %></span>
+	<span class=""><%= link_to 'user service'.t, :controller => '/users/superuser', :action => 'userservice', :id => session[:user] %></span>
+	<span class=""><%= link_to 'user service change'.t, :controller => '/users/superuser', :action => 'userservice_change', :id => session[:user] %></span>
+	<span class=""><%= link_to 'administer users'.t, users_path %></span>
+</p>

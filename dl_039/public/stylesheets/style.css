@@ -1,0 +1,100 @@
+body {min-width:901px}
+#header,#menu,#content,#sub-section,#footer {
+overflow:hidden;
+display:inline-block
+}
+/* safari and opera need this */
+#header,#menu,#footer {width:100%}
+/* safari and opera need this */
+#menu {margin-top:-3px}
+#content,#sub-section {float:left}
+#content {width:600px}
+#sub-section {width:300px}
+#footer {clear:left}
+
+body { background-color: #fff; color: #333;  }
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  margin: 10px;
+} 
+ul {
+  font-size: small;
+}
+li {
+  font-size: small;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+}
+fieldset {
+  background-color: #96FF33;
+}
+td {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+.pozadi0 { background-color:#FFFF33; }
+.pozadi1 { background-color:white; }
+#notice {
+  padding: 5px;
+  background-color: #96FF88;
+}
+.questions {
+ background-color: #C2FF71;			
+}
+.tabulky {
+  background-color: #99ff66;			
+  width: 100%; 
+}
+#trVyberOtazky {
+  background-color: #99ff11;			
+}
+.vyberovyBox{
+  background-color: white;
+  max-width:400px; 			
+  margin: 5px;
+  padding: 5px;
+	z-index: 1;
+}
+.div01 {
+  background-color: #99ff33;			
+  margin: 5px;
+  padding: 5px;
+  padding-bottom: 20px;
+}
+
+.testarea1 {
+  margin: 10px;
+}
+
+.notice {
+  background-color: #99ff33 ;			
+  margin: 10px;
+  padding: 5px;
+}
+
+.selectBox {
+  max-width: 200px; 
+  margin: 3px;
+  	z-index: 1;
+  background-color: #96FF99;
+}
+
+.tableUzivatel {
+  background-color: #96FF33;
+  width: 100%; 
+  margin: 3px;
+}
+
+.sirkasto {
+ }
+.dokumentNazev {
+  margin-left: 10px;
+  position: relative
+}

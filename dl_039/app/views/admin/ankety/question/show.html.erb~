@@ -1,0 +1,12 @@
+<dl>
+  <dt>Otázka</dt>
+  <dd><%= @question.question %></dd>
+  <dt>Počet odpovědí</dt>
+  <dd><%= @question.pocet_odpovedi %></dd>
+  <dt>Správná odpověď</dt>
+  <dd><%= @question.position %></dd>
+  <dt>Odpověď</dt>
+  <dd><%= @question.answer %></dd>
+</dl>
+<p><%= link_to 'edituj', :action => 'edit', :id => @question %> |
+<%= link_to 'zpátky', :action => 'index' %></p>

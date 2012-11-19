@@ -1,0 +1,14 @@
+<%#if not @useSession.username != 'Admin' and session[:user] != @user.id  and logged_in_user and logged_in_user.has_role?('Administrator') %>
+<%if  logged_in_user and logged_in_user.has_role?('Administrator') and @user.username != 'Admin' and session[:user] != @user.id  %>
+   <%# tohle se nacte kdyz admin a nesuperadmin %>	
+	<%= render :partial=>'user' %>
+	<%= render :partial=>'usershow' %>	
+<%elsif logged_in_user and logged_in_user.has_role?('Administrator') and @useSession.username == 'Admin' %>
+	<%= render :partial=>'usershow' %>	
+	<p>
+ 		<span class='link'><%= link_to 'edituj', :action => 'edit', :id => @user %></span>|
+		<span class='link'><%= link_to 'list', :action => 'index' %></span>
+	</p>
+<% elsif session[:user] != @user.id %>
+ 	<span><%= link_to 'seznam',  :action => 'index' %></span>
+<%end%>

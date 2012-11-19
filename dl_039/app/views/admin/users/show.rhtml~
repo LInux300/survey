@@ -1,0 +1,20 @@
+  <% content_for('tasks') do %>
+    <%= task_new 'Create new user' %>
+    <%= task_edit 'Edit this user', @user.id %>
+  <% end %> 
+
+<%if not @useSession.username != 'Admin' and session[:user] != @user.id  and logged_in_user and logged_in_user.has_role?('Administrator') %>
+	<%= render :partial=>'user' %>
+	<%= render :partial=>'usershow' %>	
+<%elsif logged_in_user and logged_in_user.has_role?('Administrator') and @useSession.username != 'Admin'%>
+	<%= render :partial=>'user' %>
+	<%= render :partial=>'usershow' %>	
+<%elsif session[:user] != @user.id %>
+	<span><%= link_to 'list'.t,:controller=>'/admin/order', :action => 'index' %></span>
+<%else %>
+	<%= render :partial=>'usershow' %>	
+	<p>
+		<span class='link'><%= link_to 'edit'.t, :action => 'edit', :id => @user %></span>|
+		<span class='link'><%= link_to 'list'.t, :action => 'index' %></span>
+	</p>
+<%end%>

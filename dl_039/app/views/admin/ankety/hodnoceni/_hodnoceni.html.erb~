@@ -1,0 +1,15 @@
+<tr>
+	<td><%= link_to "hod. ##{hodnoceni.session_id}", :action => 'show', :id => hodnoceni %></td>
+   <td><%= hodnoceni.znamka %></td>
+   <td>TODO: <td><%= hodnoceni.user_id%></td>
+   <td><%= hodnoceni.anketa_id%></td>
+   <td><%= hodnoceni.question_id%></td>
+   <td><%= hodnoceni.user_body %></td>
+   <td>vytvořena</td>
+  	<td><%= link_to 'edituj', :action => 'edit', :id => hodnoceni %></td>
+  	<td>
+     <%= button_to 'smaž', {:action => 'destroy', :id => hodnoceni},
+         :confirm =>
+           "Chceš doopravdy smazat anketu #{hodnoceni.session_id}?" %>
+  	</td>
+</tr>

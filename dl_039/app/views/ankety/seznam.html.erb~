@@ -1,0 +1,9 @@
+<table>
+  <tr>
+    <th>Anketa</th>
+    <th>Klíčová slova</th>
+  </tr>
+  <%= render :partial => 'anketa', :collection => @anketas %>
+</table>
+<p><%= link_to 'zpátky', :controller => '/about', :action => 'index' %></p>
+

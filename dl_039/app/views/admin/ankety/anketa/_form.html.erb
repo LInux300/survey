@@ -1,0 +1,31 @@
+<%= error_messages_for 'anketa' %>
+<p><label for="anketa_anketa">Jméno ankety</label><br/>
+<%= text_field 'anketa', 'title' %></p>
+
+<p><label for="anketa_questions_id">Vyber otázky / otázek do ankety</label><br/>
+<table>
+  <tr>
+    <td>
+		<%= select_tag 'anketa[question_ids][]',
+      	options_from_collection_for_select(@questions, :id, :question, 
+      	@anketa.questions.collect{|question| question.id}),
+	        { :multiple => true, :size => 21, :class => "vyberovyBox" }
+		%>
+	 </td>
+	 <td><ul>Jak přiřadit otázky?
+	  <li>pro přiřazení více otázek do ankety se používá kombinace klaves a myši. 
+	 Stiskem a držením klávesy "CTRL" a stiskem "levého tláčítka myši" označím pokaždé jednu otázku, 
+	 pro každou otázky opakuji. Další možnost je,  držím klávesu "SHIFT" s prvním poklikem myši si
+	  označím počáteční otázku, pak kolečkem roluji seznamem dolů nebo nahoru a druhým poklikem označím
+	   poslední otázku. Jednu otázku můžu mít ve více anketách!</li>
+	   </ul>
+	 </td>
+ </tr>
+</table> 	 	
+
+ 
+<p><label for="anketa_status_id">Skupina - role</label><br/>
+<%= collection_select :anketa, :status_id, @statuses, :id, :name %>
+
+<p><label for="anketa_anketa">O anketě ...</label><br/>
+<%= text_area 'anketa', 'key_word', "cols" => 53, "rows" => 3  %></p>

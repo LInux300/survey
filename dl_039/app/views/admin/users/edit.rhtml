@@ -1,0 +1,15 @@
+<% if logged_in_user and logged_in_user.has_role?('Administrator') and @user.username != 'Admin' and session[:user] != @user.id  %>
+	<%= render :partial=>'user' %>
+	<%= form_tag :action=>"edit", :id => @user.id %>
+  	<%= render_partial "form" %>
+   <%= submit_tag 'edituj' %>
+	<%# end %>
+<%elsif logged_in_user and logged_in_user.has_role?('Administrator') and @useSession.username == 'Admin' %>
+	<%= form_tag :action=>"edit", :id => @user.id %>
+  	<%= render_partial "form" %>
+   <%= submit_tag 'edituj' %>
+	<%#= end_form_tag %>
+<% elsif session[:user] != @user.id %>
+ 	<span><%= link_to 'seznam',  :action => 'index' %></span>
+<%end%>
+<span class="link"><%= link_to "seznam", :action=>"index" %></span>

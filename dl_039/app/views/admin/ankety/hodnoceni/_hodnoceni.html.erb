@@ -1,0 +1,68 @@
+<% if not hodnoceni.hodnota_odpovedi %>   
+<tr>
+	<td><%= link_to "##{hodnoceni.session_id}", :action => 'show', :id => hodnoceni %></td>
+ 	<td><%= hodnoceni.znamka %></td>
+   <td>
+<% for user in @users
+     if user.id == hodnoceni.user_id %>
+       <%=user.username %>    
+  <% end 
+   end %>
+   </td>
+   <td>
+<% for anketa in @anketys
+     if anketa.id == hodnoceni.anketa_id %>
+       <%=anketa.title %>    
+  <% end 
+   end %>
+   </td>
+   <td>
+<% for question in @otazkys
+     if question.id == hodnoceni.question_id %>
+       <%=question.question %>    
+  <% end 
+   end %>
+   </td>
+   <td><%= hodnoceni.user_body %></td>
+   <td><%= hodnoceni.hodnota_spravne %></td>
+  	<td>
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => hodnoceni},
+         :confirm =>
+           "Chceš doopravdy smazat hodnoceni #{hodnoceni.session_id}?" %>
+  	</td>
+</tr>
+<% else %>
+<tr  id="trVyberOtazky">
+	<td><%= link_to "##{hodnoceni.session_id}", :action => 'show', :id => hodnoceni %></td>
+   <td></td>    
+   <td>
+<% for user in @users
+     if user.id == hodnoceni.user_id %>
+       <%=user.username %>    
+  <% end 
+   end %>
+   </td>
+   <td>
+<% for anketa in @anketys
+     if anketa.id == hodnoceni.anketa_id %>
+       <%=anketa.title %>    
+  <% end 
+   end %>
+   </td>
+   <td>
+<% for question in @otazkys
+     if question.id == hodnoceni.question_id %>
+       <%=question.question %>    
+  <% end 
+   end %>
+   </td>
+   <td><%= hodnoceni.user_body %></td>
+   <td><%= hodnoceni.hodnota_spravne %></td>
+  	<td>
+     <%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', {:action => 'destroy', :id => hodnoceni},
+         :confirm =>
+           "Chceš doopravdy smazat hodnoceni #{hodnoceni.session_id}?" %>
+  	</td>
+</tr>
+
+<% end %>

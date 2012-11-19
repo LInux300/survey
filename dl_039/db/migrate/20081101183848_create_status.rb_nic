@@ -1,0 +1,13 @@
+class CreateStatus < ActiveRecord::Migration
+  	def self.up
+  		create_table :status do |table|
+    		table.column :name, :string, :limit => 255, :null => false, :unique => true
+    	end	
+  	end
+
+  	def self.down
+		drop_table :status  	
+  	end
+end
+
+

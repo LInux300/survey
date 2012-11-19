@@ -1,0 +1,11 @@
+<fieldset class="fieldset">
+<legend class="legend"><%="new role".t%></legend>
+	<% form_tag :action => 'create' do %>
+  	<%= render :partial => 'form' %>
+  	<%= submit_tag 'create'.t %>
+	<% end %>
+</fieldset>
+
+<p>
+	<span class="link"><%= link_to 'list'.t, :action => 'list' %></span>
+</p>	

@@ -1,0 +1,15 @@
+<%# if user.username != "Admin"%>  
+  <td><%= link_to user.username, :controller =>"/admin/users", :action => 'show', :id => user %></td>
+  <td><%= link_to user.name, :controller =>"/admin/users", :action => 'show', :id => user %></td>
+	<td><%= user.email -%></td>
+	<td><%= user.enabled ? 'ano' : 'ne' -%>
+  	<% unless user == logged_in_user -%>
+		<% if user.enabled -%>
+			[<%= link_to('zakaž pravomoce', user_url(user.id), :method => :delete) %>]
+		<%else%>
+			[<%= link_to('povol pravamoce', enable_user_url(user.id), :method => :put) %>]
+		<%end%>		
+	<%end%>		
+ 	</td>
+	<td>[<%= link_to 'změn role', user_roles_url(user.id) %>]</td>
+<%# end %>				

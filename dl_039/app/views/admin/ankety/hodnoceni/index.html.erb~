@@ -1,0 +1,15 @@
+<p>
+	POZN.: Zde je seznam všech hodnocení co poslali uživatelé.
+</p>
+<table>
+  <tr>
+    <th>| Hodnoceni session |</th>
+    <th>známka |</th>
+    <th>uživatel |</th>
+    <th>anketa |</th>
+    <th>otázka |</th>
+    <th>odpověď |</th>
+    <th>vytvořena</th>
+  </tr>
+  <%= render :partial => 'hodnoceni', :collection => @hodnocenis %>
+</table>

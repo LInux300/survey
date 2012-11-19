@@ -1,0 +1,11 @@
+<fieldset class="fieldset">
+<legend class="legend"><%="nová role/skupina "%></legend>
+	<% form_tag :action => 'create' do %>
+  	<%= render :partial => 'form' %>
+  	<%= submit_tag 'vytvoř' %>
+	<% end %>
+</fieldset>
+
+<p>
+	<span class="link"><%= link_to 'seznam', :action => 'list' %></span>
+</p>	

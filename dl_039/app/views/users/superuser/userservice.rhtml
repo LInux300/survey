@@ -1,0 +1,32 @@
+<%= render :partial => 'navigace' %>
+
+<fieldset>
+	<table>
+	  <tr>
+	    <th class="table_th"><a href="?sort_by=inhomeservice"><%= 'service'.t %></th>
+	    <th class="table_th"><%= 'login'.t %></th>
+	    <th class="table_th"><%= 'name'.t %></th>
+	    <th class="table_th"><%= 'email'.t %></th>
+	    <th class="table_th"><%= 'groups'.t %></th>
+	  </tr>
+		<%sude_liche = 0
+	  for user in @users    
+		sude_liche = 1-sude_liche %>	  
+  	<tr class="pozadi<%= sude_liche %>">
+  		<%if user.inhomeservice %>
+				<td><%= user.inhomeservice.name %></td>
+			<%else%>
+				<td></td>	
+			<%end%>	
+			<td><%= link_to user.username, :controller=>'/admin/users', :action => 'show', :id => user.id %></td>
+			<td><%= user.name%></td>
+			<td><%= user.email -%></td>
+			<td>[<%= link_to 'edit permissions'.t, roles_url(user) %>]</td>
+			<td class="table_td"><%= link_to 'edit'.t, :controller=>'/admin/users', :action => 'edit', :id => user.id %></td>
+			<td class="table_td">
+			  <%= link_to 'delete'.t, { :controller=>'/admin/users', :action => 'destroy', :id => user.id}, :confirm =>'Are you sure you want to delete user?'.t  %>
+			</td>
+ 		</tr>
+ 		<%end%>
+	</table>
+</fieldset>

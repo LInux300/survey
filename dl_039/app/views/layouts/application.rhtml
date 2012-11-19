@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 4.0 Transitional//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  	<head>
+  	   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<title><%= @page_title || 'detske-labyrinty.cz' %></title>
+	   <%= stylesheet_link_tag "style" %>
+        <!--[if IE]>
+  	   <%= stylesheet_link_tag "style" %>
+	<![endif]-->   	
+  	</head>
+  	<body>
+  	<div id="header"><h1>header</h1></div>
+<div id="menu"><h1>menu</h1>  	
+<% if session[:user]  %>	  
+	<% if is_logged_in? and logged_in_user.has_role?('Administrator') and session[:user] == 1 %> 
+	<table>
+		<tr>
+			<td>|&nbsp;<b>Superuser:</b>&nbsp;&nbsp;
+			<td><%= link_to 'users', :controller =>'/users', :action => 'index' %></td>
+			<td></td>
+		</tr>
+	</table>
+	<% end %>	
+	<% if  is_logged_in? and logged_in_user.has_role?('Administrator') %>
+	<table>
+		<tr>
+			<td>|&nbsp;<b>Menu pro administraci:</b>&nbsp;&nbsp;<%= link_to 'skupiny', :controller =>'/admin/role', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'správa uživatelů', :controller =>'/admin/users', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td></td>
+		</tr>
+	</table>
+	<% end %>
+	<% if logged_in_user and logged_in_user.has_role?('Editor')%>
+	<table>
+		<tr>
+			<td>|&nbsp;<b>Editorské menu:</b>&nbsp;&nbsp;<%= link_to 'otázky', :controller =>'/admin/ankety/question', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'ankety', :controller =>'/admin/ankety/anketa', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'typy anket', :controller =>'/admin/ankety/typy_anket', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'ankety hodnocení', :controller =>'/admin/ankety/hodnoceni', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'ankety statistika', :controller =>'/admin/ankety/statistika', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'dokumenty', :controller =>'/admin/dokumenty', :action => 'index' %>&nbsp;|&nbsp;</td>
+		</tr>
+	</table>
+	<% end %>
+	<table>
+		<tr>
+			<td>|&nbsp;<b>Menu:</b>&nbsp;&nbsp;<%= link_to 'dokumenty', :controller =>'/dokumenty', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td></td>
+		</tr>
+	</table>
+<% end %>
+	<table>
+		<tr>
+			<td>|&nbsp;<%= link_to 'všechny ankety', :controller =>'/ankety', :action => 'seznam' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'anketa podle', :controller =>'/ankety', :action => 'typy' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'labyrinty', :controller => '/about', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td></td>
+		</tr>
+	</table>
+	<div id='header'>
+		<table>
+		<tr>
+			<td>
+			  <h1 id='logo2'><%#="#{@parametry.nazev}".t%></h1>
+			  <h2 id='slogan2'><%#="#{@parametry.slogan}".t%></h2>
+			  <h2 id=''><%#="#{@parametry.logo}".t%></h2>
+			  <p id='loginlogout'> 
+					<% if is_logged_in? %> 
+						<%='přihlášen jako'%>: <i><%= logged_in_user.username %></i> 
+					 	<%= link_to '<span>odhlásit</span>',{ :controller => '/account', :action =>'logout'}, :method => :post, :class => 'boldbuttons'  %>
+				 		<%= link_to '<span>na svůj účet</span>',{ :controller => '/users', :action =>'show'}, :class => 'boldbuttons'  %>
+					<% else %> 
+					 	<%= link_to '<span>zaregistrovat se</span>',{ :controller => '/users', :action =>'new'}, :class => 'boldbuttons'  %>
+					 	<%= link_to '<span>přihlásit se</span>',{ :controller => '/account', :action =>'login'}, :class => 'boldbuttons'  %>
+					<% end %>
+				</p>
+			</td>
+			<td width="200px"></td>
+			<td>
+            <img src="/picture/logo2.png" width="60%" height="60%" alt="anketa: detske-labyrinty.cz" />			 	
+			 	<!--<img src="/picture/logo.png" width="312" height="163" alt="LOGO: detske-labyrinty.cz" />-->
+			</td>
+		</tr>
+		</table> 
+	</div>
+</div>
+<div id="sub-section"><h1>sub-section</h1></div>
+<div id="content"><h1>content</h1>
+	<%= "<h1>#{@page_title}</h1>" if @page_title %>
+   <% if flash[:notice] %>
+	  <div class="notice"> 
+	  	<%= flash[:notice] %>
+	  </div>
+	<% end %>
+  	<%= yield %>
+</div>
+<div id="footer"><h1>footer</h1></div>  	
+  	</body>
+</html>

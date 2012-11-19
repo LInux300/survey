@@ -1,0 +1,12 @@
+<h1><%='uprava svého účtu'%></h1>
+<%= render :partial => 'navigace' %>
+<%= error_messages_for :user, :header_message => "" , :message => "Byla neschoda v těchto případech" %>
+
+<% upload_form_for :user,
+						:url => user_url(@user),
+						:html => { :method => :put} do |f| -%>
+   <fieldset>
+ 	   <%= submit_tag 'uložit' %>
+   </fieldset>
+	<p><%= render :partial => 'form' %></p>			
+<% end %>	

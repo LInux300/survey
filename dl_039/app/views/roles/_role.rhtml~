@@ -1,0 +1,13 @@
+<dd>
+	<%= role.name %>
+	[<% if @user.has_role?(role.name)%>
+		<%= link_to 'odstraň uživatele ze skupiny',
+								role_url(:id => role.id, :user_id => @user.id),
+								:method => :delete %>
+	 <% else %>
+		<%= link_to 'přiřaď uživatele do skupiny',
+								role_url(:id => role.id, :user_id => @user.id),
+								:method => :put %>
+	 <% end %>]
+</dd>
+

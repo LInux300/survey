@@ -1,0 +1,31 @@
+<p>
+	<span class="link"><%= link_to 'nová role', :action => 'new' %></span>
+</p>	
+
+<p>
+	POZN:. Uživatelská role slouží, rozdělení uživatelů do skupin. Každá skupina má svoje opravnění. OTAZKA: Co se komu má zobrazovat?
+</p>
+
+
+<fieldset class="fieldset">
+<legend class="legend"><%="seznam"%></legend>
+	<table>
+	  <tr>
+	    <th class="table_th"><%= 'jméno' %></th>	    
+	  </tr>
+  
+	  
+    <%sude_liche = 0
+    		for role in @roles     
+    		sude_liche = 1-sude_liche %>
+	  <tr  class="pozadi<%= sude_liche %>">
+    	<td><%=h role.name %></td>
+	    <td><%= link_to 'ukázat', :action => 'show', :id => role %></td>
+    	<td><%= link_to 'upravit', :action => 'edit', :id => role %></td>
+    	<td><%#= link_to 'smazat', { :action => 'destroy', :id => role }, :confirm => 'Jste si jistí?', :method => :post %></td>
+	  </tr>
+	<% end %>
+	</table>
+</fieldset>
+
+<p><%= link_to 'zpátky', :controller => "/about", :action => 'index' %></p>

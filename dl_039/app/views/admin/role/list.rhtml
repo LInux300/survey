@@ -1,0 +1,30 @@
+<p>
+	Uživatelská role slouží, rozdělení uživatelů do skupin. Každá skupina má svoje opravnění.
+</p>
+<p>
+	<span class="link"><%= link_to 'nová role', :action => 'new' %></span>
+</p>	
+<fieldset class="fieldset">
+<legend class="legend"><%="seznam"%></legend>
+	<table>
+	  <tr>
+	    <th class="table_th"><%= 'jméno' %></th>	    
+	  </tr>
+  
+	  
+    <%sude_liche = 0
+    		for role in @roles     
+    		sude_liche = 1-sude_liche %>
+	  <tr  class="pozadi<%= sude_liche %>">
+    	 <td><%=h role.name %></td>
+	    <td><%= link_to '<img src="/picture/icon_list.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'show', :id => role %></td>
+       <%# if session[:user] == 1 %>     
+    	    <td><%= link_to '<img src="/picture/icon_edit.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', :action => 'edit', :id => role %></td>
+      	 <td><%= link_to '<img src="/picture/icon_delete.jpg" width=20 height=20 alt="anketa: detske-labyrinty.cz" />', { :action => 'destroy', :id => role }, :confirm => 'Jste si jistí?', :method => :post %></td>
+    	 <%# end %>
+	  </tr>
+	<% end %>
+	</table>
+</fieldset>
+
+<p><%= link_to 'zpátky', :controller => "/about", :action => 'index' %></p>

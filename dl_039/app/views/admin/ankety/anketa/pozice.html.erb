@@ -1,0 +1,38 @@
+<%= render :partial => 'navigace' %>
+
+<div class="div01">
+<h3>Nastavení pozice otázky :</h3>
+
+<%= form_tag :action => 'createPozition' %>
+ <%#= @anketa.questions.map{|a| ['<tr>'+ a.id.to_s + a.question + a.pocet_odpovedi.to_s + "</tr>"]}.join %>
+ <table>
+  <tr>
+   <td>
+     <%#= select("post", "otazka_zmena", @otazkyPozice.collect {|p| [ p.otazka, p.otazka_id ] }, { :include_blank => true }, :class=>"selectBox") %>    
+     <%= select("post", "otazka_zmena_pozice", @otazkyPozice.collect {|p| [ p.otazka, p.pozice_otazky ] }, { :include_blank => true }, :class=>"selectBox") %>    
+   </td>	 
+   <td>
+    <select name="anketas_questions">
+      <option value=""></option>
+      <option value="na_zacatek" selected="selected">na začátek</option>
+      <option value="pred">před</option>
+      <option value="za">za</option>
+      <!--<option value="na_konec">na konec</option>-->
+    </select>
+   </td>
+   <td>
+     <%#= select("post", "otazka_podle", @otazkyPozice.collect {|p| [ p.otazka, p.otazka_id ] }, { :include_blank => true }, :class=>"selectBox") %>    
+     <%= select("post", "otazka_podle_pozice", @otazkyPozice.collect {|p| [ p.otazka, p.pozice_otazky ] }, { :include_blank => true }, :class=>"selectBox") %>    
+	</td>
+	<td><span><%= submit_tag 'změň pozici' %></span></td>	 
+  </tr>
+ </table>
+ <%# hidden_field(:"anketas_questions, :id) %>
+ <input type="hidden" id="id" name="id" value="<%= @otazkyPozice[0]['anketa_id'] %>"
+<span>  
+ <table>
+   <%= render :partial => 'anketas_questions', :collection => @otazkyPozice %>
+ </table>
+</span> 
+</div>
+</br>

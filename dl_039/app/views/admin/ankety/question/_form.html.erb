@@ -1,0 +1,47 @@
+<%= error_messages_for 'question' %>
+<fieldset>
+<legend class="legend">Standartní anketní otázka</legend>
+  <p><label for="question_question">Otázka</label><br/>
+    <%= text_area 'question', 'question', "cols" => 83, "rows" => 3 %></p>
+  <p><label for="question_mark_total">Známka</label><br/>
+    <%= text_field 'question', 'mark_total', "size" => 2, "value" => @question.mark_total %></p>
+  <p><label for="question_votes_total">Počet hlasujících</label><br/>
+    <%= text_field 'question', 'votes_total', "size" => 2, "value" => @question.votes_total %></p>
+  <ul>
+     <li>můžete přednastavit známku a počet hlasujících.</li>
+  </ul> 
+</fieldset>
+
+<fieldset>
+<legend class="legend">Výběrová otázka</legend>
+  <p><label for="question_position">Pozice správné odpovědi</label><br/>
+  	 <%= text_field 'question', 'position', "size" => 5, "value" => @question.position %>
+    <BR />    
+    <ul><b>Co se hodí zapsat?</b>   
+  	    <li>JESTE NENI HOTOVO: Jsou-li čísla odděleny čárkou, je správně víc odpovědí. Jako příklad je uvedeno  1,4,2 nebo, 7,3,2. Čísla jsou odděleny čárkou a bez mezery.
+        Všechny musejí být odpovidatelem zodpovězeny správně jinak odpověd na otázku je špatně.  	    
+  	    </li> 
+       <li>Je-li zapsána 0 - otázka z daných odpovědí nemá ani jednu správnou, všechny odpovědi jsou si rovny.</li>
+       <li>Jinak číslo udává kolikátá odpověď je správná. Toto číslo nesmí být větší jak počet řádků v odpovědí.</li>
+    </ul>   
+  </p>
+  <p><label for="question_answer">Odpověď</label><BR />
+    <%= text_area 'question', 'answer', "cols" => 83, "rows" => 7 %>
+  </p>
+
+<!--  TODO: 
+  <p><label for="question_yes">Titulní anketa</label><br/>
+	  <input type="checkbox" id="question_yes" name="question[yes]" value="0"  />
+	  <input name="question[yes]" type="hidden" value="0" />
+-->
+
+  <p>      
+	  <ul>
+	    <li>Každý řádek je jedna možná odpověď. Počet řádků můsí být větší jak pozice správné odpovědi.</li>
+       <li>JESTE NENI HOTOVO: Když je zaškrknuto tak se otázka automaticky přesune na titulní stranu anket.
+        Vždy je tak drženo pět nejaktualnějších otázek.</li>
+     </ul> 
+  </p>
+
+
+</fieldset>

@@ -1,0 +1,7 @@
+<div class="div01">
+<%= form_tag ( {:action => 'update', :id => @typ}, :multipart => true ) %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'edituj' %>
+</div>
+<%= link_to 'ukázat', :action => 'ukazat', :id => @typ %> |
+<%= link_to 'zpátky', :action => 'index' %>

@@ -1,0 +1,19 @@
+class CreateQuestions < ActiveRecord::Migration
+  def self.up
+    create_table :questions do |t|
+      t.column :position, :integer
+      t.column :question, :string
+      t.column :answer, :string 
+      t.column :yes, :boolean
+      t.column :mark_total, :integer
+      t.column :votes_total, :integer
+      t.column :first_name, :string
+      t.column :updated_at, :datetime      
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :questions
+  end
+end

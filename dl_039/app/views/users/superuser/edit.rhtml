@@ -1,0 +1,63 @@
+<%= render :partial => 'navigace' %>
+
+<table>
+	<tr>
+		<td><%='id'.t%>: <%= @userservice.id %></td>
+	</tr>
+	<tr>
+		<td><%='status'.t%> : <%= @userservice.status %></td>
+	</tr>
+	<tr>	 
+		<td><%='updated at'.t%>: <%= @userservice.updated_at %></td>
+	</tr>
+	<tr>
+		<td></td>
+	</tr>
+	<tr>
+		<td><%='user name'.t%>: <%= link_to "#{@user.name}", :controller=>'/users', :action=>'show', :id=>@user.id %></td>
+	</tr>
+	<tr>
+		<td><%='current service'.t%>: <strong><%= @user.inhomeservice.name %></strong></td>
+	</tr>
+</table>
+
+
+
+<%= start_form_tag( {:action => 'update', :id => @userservice}, :multipart => true )%> 
+	<%= error_messages_for 'userservice' %>
+	<fieldset>	
+	  <legend><%= 'change service'.t %></legend>  
+		<table>
+		<tr>
+			<td align='right'><%= 'new service'.t %>:</td>
+			<td><strong><%= @userservice.inhomeservice.name %></strong></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><%= @userservice.day_new  %></td>	
+		</tr>
+		<tr>
+			<td align='right'><%= 'new date'.t %>:</td>
+			<td><%= date_select 'inuserservice', 'day_new'  %></strong></td>
+		</tr> 
+		<tr> 
+			<td align='right' width='25%'><%=' new request'.t%>: </td>
+			<td><%= @userservice.request %><td>
+		</tr>
+		<tr> 
+			<td align='right' width='25%'><%='answer'.t%>: </td>
+			<td><%= @userservice.answer %><td>
+		</tr>
+		<tr>
+			<td align='right'><%= 'answer'.t %>: </td>
+			<td><%= text_area 'inuserservice', 'answer'  %></td> 		
+		</tr>
+		<%#= hidden_field :user, :inhomeservice_id, :value =>@userservice.inhomeservice_id %>
+		<%#= hidden_field :user, :user_id, :value =>"#{@user.id}" %>		
+		<%= hidden_field :inuserservice, :status, :value =>"ok" %>
+		</table> 
+	</fieldset>
+  <%= submit_tag 'edit' %>
+<%= end_form_tag %>
+
+

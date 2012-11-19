@@ -1,0 +1,12 @@
+
+----
+<%= @pocetOdpovedi %>
++++
+
+
+<%= form_tag :action => 'update', :id => @question %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'edituj' %>
+<%= form_tag %>
+<%= link_to 'ukaž', :action => 'show', :id => @question %> |
+<%= link_to 'zpátky', :action => 'index' %>

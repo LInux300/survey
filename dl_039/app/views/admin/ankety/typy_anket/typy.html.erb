@@ -1,0 +1,13 @@
+<p><%= link_to 'nový typ', :action => 'new' %></p>
+<div class="div01">
+<table class="tabulky">
+  <tr>
+    <th>Anketa</th>
+    <th>o anketě ...</th>
+  </tr>
+  <%= render :partial => 'typ', :collection => @typy %>
+</table>
+</div>
+<ul>POZN.: 
+	<li>Slouží k nadefinování skupin k rozřazení anket podle typu.</li>
+</ul>

@@ -1,0 +1,22 @@
+<p class='navigation'>
+	<span class="link"><%= link_to 'Add a new user'.t, :action => 'new' %></span>
+</p>
+<fieldset>
+	<table>
+	  <tr>
+	    <th class="table_th"><%= 'login'.t %></th>
+	    <th class="table_th"><%= 'name'.t %></th>
+	    <th class="table_th"><%= 'email'.t %></th>
+	    <th class="table_th"><%= 'groups'.t %></th>
+	  </tr>
+		<%sude_liche = 0
+		for user in @users    
+		sude_liche = 1-sude_liche %>	  
+  		<%#= render :partial => 'user', :collection => @users %>
+  	<tr class="pozadi<%= sude_liche %>">
+  	  <%= render :partial => "user", :object => user %>
+    </tr>
+  	<%end%>
+	</table>
+</fieldset>
+

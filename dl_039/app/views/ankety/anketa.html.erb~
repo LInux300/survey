@@ -1,0 +1,44 @@
+Jméno ankety
+<h1><%= link_to @anketa.title, :action => 'anketa', :id => @anketa.id %></h1>
+
+<p><b>otázky k anketě: </b><br />
+	<%= @anketa.questions.map{|a| a.question}.join("<br /> ") %>
+<p>	
+
+<% form_tag({:action => 'create' }, {:multipart => true, :class => "questions"}) do |f| -%>
+		<% if session[:user]  %>
+		
+		<% else %>
+			<p>
+				<b>Staňte se uživately Detske-labyrinty.cz, chceme Vám poskytovat komlexní řešení, dle Vašich potřeb.</b>
+			</p>
+			<table>
+			Nejste přihlášeni, prosím <%= link_to '<span>přihlaste se</span>',{ :controller => '/account', :action =>'login', :params => {:catalogue =>'username'}}, :class => 'boldbuttons'  %> nebo <%= link_to '<span>se zaregistrujte</span>',{ :controller => '/users', :action =>'new', :params => {:catalogue =>'username'}}, :class => 'boldbuttons'  %>. Nechcete-li se přihlásit ani zaregistrovat, tak prosím vyplňte jen základní informace o vás, o vašem zařízení, apod.: 		
+	  		<td>
+  				<textarea cols="47" rows="5" id="podpis" name="podpis">
+    			</textarea>
+  	  		</td>
+			</table>
+	  	<% end %>
+	<p><b>Hodnocení otázek v anketě:</b></p>
+	<p>
+		<table>
+			<tr>
+				<th>|otázka |</th>
+				<th>| známka |</th>
+				<th>| slovní hodnocení / odpověď |</th>
+				<th>| celkem hlasovalo |</th>
+				<th>| známka |</th>
+			</tr>
+  			<%= render :partial => 'question', :collection => @questions %>
+		</table>
+		<%= submit_tag 'pošli' %>
+	</p>
+<% end %>
+
+
+
+
+
+
+

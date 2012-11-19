@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to typ.name, :controller =>"/ankety", :action => 'typ', :id => typ %></td>
+  <td><%= link_to typ.key_word, :controller =>"/ankety", :action => 'typ', :id => typ %></td>
+  <td><%= link_to 'ukázat', :action => 'show', :id => typ %></td>
+  <td><%= link_to 'edituj', :action => 'edit', :id => typ %></td>
+  <td>
+     <%= button_to 'smaž', {:action => 'destroy', :id => typ},
+         :confirm =>
+           "Chceš doopravdy smazat typ / skupinu #{typ.name}?" %>
+  </td>
+</tr>
+

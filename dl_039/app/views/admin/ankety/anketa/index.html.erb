@@ -1,0 +1,19 @@
+<p><%= link_to 'nová anketa', :action => 'new' %></p>
+<div class="div01">
+<table class="tabulky">
+  <tr>
+    <th>Jméno ankety</th>
+    <th>Známka</th>
+    <th>Kolikrát odpovězena</th>
+    <th>Vytvořena</th>
+    <th>Změněna</th>
+  </tr>
+  <%= render :partial => 'anketa', :collection => @anketas %>
+</table>
+</div>
+<% if not @anketas %>
+<ul>POZN.: 
+	<li>Zde vytvářím ankety a přiřazuji k nim otázky.</li>
+</ul>
+<% end %>
+<p><%= link_to 'zpátky', :controller => "/about", :action => 'index' %></p>

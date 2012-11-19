@@ -1,0 +1,7 @@
+<%#= start_form_tag( {:action => 'update', :id => @book}, :multipart => true )%>
+<%= render :partial => 'navigace' %>
+<div class="div01">
+<%= form_tag ( {:action => 'update', :id => @anketa}, :multipart => true ) %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'edituj' %>
+</div>

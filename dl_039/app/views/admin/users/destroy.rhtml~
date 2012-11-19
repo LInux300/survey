@@ -1,0 +1,13 @@
+  <% @page_title = 'uživatelé' %>
+
+  <% content_for('tasks') do %>
+    <%= "TODO:" %>
+    	<%#= task_show 'ukaž uživatele', @user.id %>
+  <% end %> 
+<h3> <%='Doopravdy smazat uživatele' %> "<%= @user.name || @user.login %>" ?</h3>
+<br/>
+<%= form_tag %>
+  	<%= hidden_field "user", "id" %>
+	<%= "TODO:" %>  
+  	<%#= confirm_delete("ANO...") %>
+<%#= end_form_tag %>

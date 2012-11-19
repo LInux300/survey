@@ -1,0 +1,15 @@
+<%if user.username != "Admin"%>
+  <td><%= link_to user.username, :action => 'show', :id => user %></td>
+  <td><%= link_to user.name, :action => 'show', :id => user %></td>
+	<td><%= user.email -%></td>
+	<td>TODO: [<%#= link_to 'uprav oprávnění', :id => user, :action => 'roles' %>]</td>
+  <td class="table_td"><%= link_to 'upravit', :action => 'edit', :id => user %></td>
+  <td class="table_td">
+     <%= link_to 'smaž', {:action => 'destroy', :id => user},
+         :confirm =>
+           "Doopravdy smazat uživatele?"  %>
+  </td>
+<%end%>
+
+ 
+

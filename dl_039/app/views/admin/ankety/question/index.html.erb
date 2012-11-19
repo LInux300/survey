@@ -1,0 +1,17 @@
+<p><%= link_to 'přidej novou otázku', :action => 'new' %></p>
+<div class="div01">
+<table class="tabulky">
+  <tr>
+    <th>Otázka</th>
+    <th>Známka</th>
+    <th>Kolikrát odpovězena</th>
+    <th>Vytvořena</th>
+    <th>Změněna</th>
+  </tr>
+  <%= render :partial => 'question', :collection => @questions %>
+</table>
+</div>
+<p><%= link_to 'zpátky', :controller => "/about", :action => 'index' %></p>
+<ul> POZN.: 
+	<li>Zde je úložiště všech otázek co mám k dispozici, stejná otázka může být ve více anketách.</li> 	 
+</ul>

@@ -1,0 +1,7 @@
+<div class="div01">
+<%= form_tag :action => 'create' %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Create' %>
+<%# end_form_tag %>
+</div>
+<%= link_to 'Zpátky', :action => 'index' %>

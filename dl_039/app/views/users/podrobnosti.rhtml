@@ -1,0 +1,42 @@
+<h1><%='uživatel'%>: <%= @user.username %></h1>
+<%= render :partial =>'navigace' %>
+<fieldset>
+    <legend><%= 'Uživatelské informace' %></legend> 
+    <p><label for="user_username"><%= 'přihlašovací jméno' %>: </label> <span class="static"><b><%=h @user.username %></b></span></p>
+    <p><label for="user_email"><%= 'e-mail' %>: </label> <span class="static"><b><%=h @user.email %></b></span></p>
+    <p><label for="user_updated_at"><%= 'účet aktualizován' %>: </label><span class="static"><b><%=h @user.updated_at %></b></span></p>
+    <p><%="uživatelem od: "%><b><%= @user.created_at.to_s()%></b></p>
+    <p></label><span class="static"><img src="<%#@user.fotka.thumb.url%><%=@user.fotka%>" width="150px" height="150px" alt="foto" /></span> </p>
+    <p><label for="user_profile"><%= 'profil' %>: </label><span class="static"><b><%=h @user.profile %></b></span></p>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= 'Doplňkové informace' %></legend>
+    <p><label for="user_phone"><%= 'telefon' %>: </label><span class="static"><%=h @user.phone %></span></p>
+    <p><label for="user_name"><%= 'jméno' %>: </label><span class="static"><%=h @user.name %></span></p>
+    <p><label for="user_address"><%= 'adresa' %>: </label><span class="static"><%=h @user.address %></span></p>
+    <p><label for="user_city"><%= 'město' %>: </label><span class="static"><%=h @user.city %></span></p>
+    <p><label for="user_postcode"><%= 'směrovací číslo' %>: </label><span class="static"><%=h @user.postcode %></span></p>
+    <p><label for="user_country"><%= 'země' %>: </label><span class="static"><%=h @user.country %></span></p>
+  </fieldset>
+
+
+<%if @user.company!=""%>	
+  <fieldset>
+    <legend><%= 'Název zařízení' %></legend>  	    	
+    	<p><label for="user_company"><%= 'Jméno zařízení' %>: </label><span class="static"><%=h @user.company %></span></p> 
+    	<p><label for="user_ic"><%= 'IC' %>: </label><span class="static"><%=h @user.ic %></span></p>
+    	<p><label for="user_dic"><%= 'DIC' %>: </label><span class="static"><%=h @user.dic %></span></p> 
+     	<p><label for="user_email_firma"><%= 'e-mail' %>: </label><span class="static"><%=h @user.company_email %></span></p>
+     	<p><label for="user_telefon_firma"><%= 'telefon' %>: </label><span class="static"><%=h @user.company_phone %></span></p>
+     	<p><label for="user_fax"><%= 'fax' %>: </label><span class="static"><%=h @user.company_fax %></span></p>
+  </fieldset>
+  <fieldset>
+    <legend><%= 'Adresa zařízení' %></legend>
+  		<p><%= 'Je-li adresa jiná než kterou jste zadali předtím.' %></p>	
+    	<p><label for="user_adresa_firma"><%= 'adresa' %>: </label><span class="static"><%=h @user.company_address %></span></p>
+    	<p><label for="user_mesto_firma"><%= 'město' %>: </label><span class="static"><%=h @user.company_city %></span></p>
+    	<p><label for="user_psc_firma"><%= 'směrovací číslo' %>: </label><span class="static"><%=h @user.company_postcode %></span></p>
+    	<p><label for="user_zeme_firma"><%= 'země' %>: </label><span class="static"><%=h @user.company_country %></span></p>
+  </fieldset>
+<% end %>

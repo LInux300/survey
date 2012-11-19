@@ -1,0 +1,51 @@
+<!--
+<p>dětský domov, Brno</p>
+<h2>Kontaktní adresa</h2>
+<address>
+Dětské labyrinty<br/ >
+Brno<br/>
+Eda Kurdiovský<br/ >
+</address>
+  <table>
+		<tr>
+			<td>|&nbsp;<b>Menu pro editaci anket:</b>&nbsp;&nbsp;<%= link_to 'otázky', :controller =>'/admin/ankety/question', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Prostor pro komunikaci', :action => 'komunikace' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Hledáte spolupráci, informaci, radu?', :controller =>'/admin/ankety/typy_anket', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Distribuce interního softwaru.', :controller =>'/admin/ankety/hodnoceni', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Webové stránky', :controller =>'/admin/ankety/statistika', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Regionální pracoviště', :controller =>'/admin/ankety/statistika', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td><%= link_to 'Reference', :controller =>'/admin/ankety/statistika', :action => 'index' %>&nbsp;|&nbsp;</td>
+			<td></td>
+		</tr>
+  </table>
+-->
+
+
+<p>
+o.s. Dítě v labyrintu
+představuje připravovaný projekt internetového portálu, věnujícího se tématu ohrožených a rizikových dětí a mládeže.
+</p>
+
+<BR />
+  
+<p>Milí návštěvníci, v zájmu analýzy Vašich reálných potřeb a požadavků na připravovaný 
+portál bychom Vás rádi požádali o Vaše názory a náměty na následující stránce. 
+Nabízíme prostor pro otevřené sdělení toho, co Vám může ve výchově, práci a životě pomoci.</p> 
+
+<BR />
+
+<p>Jsme odbornými pracovníky v oblasti ohrožených a rizikových dětí a mládeže
+ (<a href="http://www.dum-brno.cz" target="_blank">www.dum-brno.cz</a>) a chceme Vás oslovit s <b>následující</b> nabídkou. </p>
+
+<img src="/picture/strana2.png" width="99%" height="99%" alt="anketa: detske-labyrinty.cz" />
+
+<%= link_to 'volba statusu', :controller =>'/ankety', :action => 'typy' %>
+
+<ul>
+   <li>(rodič </li>
+   <li> učitel(ka)  - typ školy, pracovní zařazení, délka praxe </li>
+   <li>sociální pracovník(ce) pro děti a mládež – délka praxe </li>
+   <li>odborník z oblasti ÚV a OV – DD? VÚ? DÚ?, pracovní zařazení </li> 
+   <li>dítě v ÚV – věková kategorie, typ zařízení </li>
+   <li>jiné….</li>
+<ul>

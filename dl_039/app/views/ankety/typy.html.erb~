@@ -1,0 +1,11 @@
+<h3>Vybrat ankety podle typu</h3>
+
+<table>
+  <tr>
+    <th>Typ ankety</th>
+    <th>Klíčová slova</th>
+  </tr>
+  <%= render :partial => 'typ', :collection => @typs %>
+</table>
+
+
